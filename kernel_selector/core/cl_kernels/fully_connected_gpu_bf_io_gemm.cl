@@ -211,8 +211,8 @@ KERNEL(fc_f32)(
 
         if (m_offset < end_offset)
         {
-            const float4 m = mat_read[m_offset];
-            const float4 v = src_read[v_offset];
+            const float4 m = vload4(m_offset, (__global const float*)mat_read);
+            const float4 v = vload4(v_offset, (__global const float*)src_read);
             if ((x + 1) == ((LAST_INPUT_SIZE_REMAINDER + VEC_SIZE - 1) / VEC_SIZE))
             {
                 #if (LAST_INPUT_SIZE_DIV_4 == 3)

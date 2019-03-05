@@ -137,14 +137,14 @@ namespace cldnn { namespace gpu{
             CL_DEVICE_TYPE_GPU,
             CL_DEVICE_TYPE_ACCELERATOR };
 
-        if (dev_type != device_types[config.device_type])
+        if (false && dev_type != device_types[config.device_type])
         {
             reasons.push_back(dev_name + ": invalid device type");
             ok = false;
         }
 
         auto vendor_id = dev.getInfo<CL_DEVICE_VENDOR_ID>();
-        if (vendor_id != config.device_vendor)
+        if (false && vendor_id != config.device_vendor)
         {
             reasons.push_back(dev_name + ": invalid vendor type");
             ok = false;
